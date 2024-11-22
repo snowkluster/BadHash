@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload and Hash Calculation</title>
+    <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@1.8.3/dist/htmx.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+    <div class="bg-white p-6 rounded shadow-md w-full max-w-4xl">
+        <h1 class="text-xl font-bold mb-4">Upload a File to Calculate Hashes</h1>
+        <form hx-post="/upload" hx-target="#results" hx-encoding="multipart/form-data" class="space-y-4">
+            <!-- Custom file input -->
+            <div class="relative">
+                <input type="file" name="file" id="fileInput" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required>
+                <button type="button" class="w-full p-2 border rounded bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    Choose File
+                </button>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded">Upload File</button>
+        </form>
+
+        <div id="results" class="mt-4">
+            <!-- Results will be inserted here -->
+        </div>
+    </div>
+</body>
+</html>

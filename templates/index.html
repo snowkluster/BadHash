@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Upload and Hash Calculation</title>
-    <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=100&id=w3-N-NyMiE_F&format=png&color=000000">
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@1.8.3/dist/htmx.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,7 +13,6 @@
     <div class="bg-white p-6 rounded shadow-md w-full max-w-4xl" x-data="{ fileName: '' }">
         <h1 class="text-xl font-bold mb-4">Upload a File to Calculate Hashes</h1>
         <form hx-post="/upload" hx-target="#results" hx-encoding="multipart/form-data" class="space-y-4">
-            <!-- Custom file input -->
             <div class="relative">
                 <input type="file" name="file" id="fileInput" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required 
                        x-on:change="fileName = $event.target.files[0] ? $event.target.files[0].name : ''">
@@ -23,8 +22,6 @@
             </div>
             <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded">Upload File</button>
         </form>
-
-        <!-- Go to VirusTotal Button -->
         <a href="/checkhash" class="mt-4 inline-block w-full bg-green-500 text-white py-2 rounded text-center">
             Go to VirusTotal to Check File Hash
         </a>

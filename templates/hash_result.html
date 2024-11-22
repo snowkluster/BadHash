@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash Check Result</title>
+    <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@1.8.3/dist/htmx.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+    <div class="bg-white p-6 rounded shadow-md w-full max-w-4xl">
+        <h1 class="text-xl font-bold mb-4">VirusTotal Hash Check Result</h1>
+        <p><strong>Hash:</strong> <span class="break-all">{{.hash}}</span></p>
+        <p><strong>Status:</strong> <span class="text-lg font-semibold">{{.status}}</span></p>
+
+        {{if eq .status "Malicious"}}
+            <p class="text-red-600">Warning: This file is detected as malicious by VirusTotal!</p>
+        {{else}}
+            <p class="text-green-600">This file is harmless according to VirusTotal.</p>
+        {{end}}
+
+        <a href="/checkhash" class="text-blue-500">Check another hash</a>
+    </div>
+</body>
+</html>
